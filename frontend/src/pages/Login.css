@@ -1,0 +1,101 @@
+/* Login.css */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: url('books.jpg') no-repeat center center/cover;
+  }
+  
+  .login-card {
+    background-color: #2d2d2d;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .login-title {
+    color: #f1f1f1;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+  }
+  
+  .input-label {
+    color: #cccccc;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #444;
+    background-color: #333;
+    color: #f1f1f1;
+  }
+  
+  .input-field:focus {
+    outline: none;
+    border-color: #009688;
+    box-shadow: 0 0 5px rgba(0, 150, 136, 0.5);
+  }
+  
+  .error-message {
+    color: #ff5c5c;
+    margin-top: 5px;
+  }
+  
+  .submit-group {
+    margin-top: 20px;
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    background-color: #009688;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: #00796b;
+  }
+  
+  .alternative-option {
+    color: #cccccc;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .sign-up,
+  .forgot-password {
+    color: #999999;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .link {
+    color: #009688;
+    text-decoration: none;
+  }
+  
+  .link:hover {
+    text-decoration: underline;
+  }
+  
