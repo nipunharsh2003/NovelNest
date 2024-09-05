@@ -1,0 +1,87 @@
+# Node modules
+/node_modules/
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build output
+/dist/
+/build/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE/Editor specific files
+/.vscode/
+/.idea/
+/*.suo
+/*.ntvs_analysis.dat
+/*.njsproj
+/*.suo
+/*.user
+/*.userosscache
+/*.suo
+/*.project
+/*.classpath
+/.project
+/.metadata
+
+# Optional npm cache directory
+.npm
+
+# Optional yarn cache directory
+.yarn/cache
+
+# Optional ESLint cache
+.eslintcache
+
+# Optional Prettier cache
+.prettiercache
+
+# Next.js build output
+.next/
+
+# Nuxt.js build output
+.nuxt/
+
+# Parcel-bundler cache (https://parceljs.org/)
+.cache/
+
+# Sapper build output
+__sapper__/
+
+# Storybook build output
+out/
+
+# Compiled output
+*.out
+*.o
+*.obj
+*.lo
+*.la
+*.al
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Docker
+Dockerfile
+docker-compose.yml
+
+# VS Code settings
+.settings/
