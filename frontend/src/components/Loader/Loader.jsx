@@ -14,17 +14,5 @@ const Loader = () => {
   )
 }
 
-export default Loader
-// import React from 'react';
-// import { FaBookOpen } from 'react-icons/fa';
+export default Loader;
 
-// const Loader = () => {
-//   return (
-//     <div className="flex flex-col items-center justify-center h-screen">
-//       <FaBookOpen className="text-blue-600 animate-spin text-6xl" />
-//       <span className="mt-4 text-gray-500 text-lg">Loading...</span>
-//     </div>
-//   );
-// };
-
-// export default Loader;

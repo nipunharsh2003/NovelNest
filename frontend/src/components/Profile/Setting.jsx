@@ -18,7 +18,7 @@ const Settings = () => {
     useEffect(() => {
         const fetch = async () => {
             const response = await axios.get(
-                'http://localhost:8100/api/get-user-information',
+                'https://novelnest-backend.onrender.com/api/get-user-information',
                 { headers }
             );
             setProfileData(response.data);
@@ -28,7 +28,7 @@ const Settings = () => {
     }, []);
     const submitAddress = async () => {
       try {
-        const response = await axios.put("http://localhost:8100/api/update-address", Value, { headers });
+        const response = await axios.put("https://novelnest-backend.onrender.com/api/update-address", Value, { headers });
         alert(response.data.message);
         console.log(response.data.data)
       } catch (error) {

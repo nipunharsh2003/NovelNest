@@ -28,7 +28,7 @@ const ViewBookDeatils = () => {
     useEffect(() => {
         const fetch = async () => {
             try {
-                const response = await axios.get(`http://localhost:8100/api/get-book-by-id/${id}`);
+                const response = await axios.get(`https://novelnest-backend.onrender.com/api/get-book-by-id/${id}`);
                 console.log(response);
                 setData(response.data.data);
             } catch (error) {
@@ -46,7 +46,7 @@ const ViewBookDeatils = () => {
     
     const handleFavourite = async () => {
         try {
-            const response = await axios.put("http://localhost:8100/api/add-book-to-favourites", {}, { headers });
+            const response = await axios.put("https://novelnest-backend.onrender.com/api/add-book-to-favourites", {}, { headers });
             alert(response.data.message);
             console.log(response.data.message); // Corrected typo here
         } catch (error) {
@@ -54,12 +54,12 @@ const ViewBookDeatils = () => {
         }
     };
     const handleCart = async () =>{
-        const response =  await axios.put("http://localhost:8100/api/add-to-cart",{}, { headers});
+        const response =  await axios.put("https://novelnest-backend.onrender.com/api/add-to-cart",{}, { headers});
         alert(response.data.message);
     };
     const deleteBook = async () => {
         try {
-          const response = await axios.delete("http://localhost:8100/api/delete-book", {
+          const response = await axios.delete("https://novelnest-backend.onrender.com/api/delete-book", {
             headers: headers,
           });
           alert(response.data.message);

@@ -9,7 +9,7 @@ const Userpayment = () => {
   const handlePayment = async (orderId) => {
     try {
       // Make a request to your backend to create the payment session
-      const response = await axios.post('http://localhost:8100/create-checkout-session', { orderId });
+      const response = await axios.post('https://novelnest-backend.onrender.com/create-checkout-session', { orderId });
       
       const stripe = await stripePromise;
       const { error } = await stripe.redirectToCheckout({

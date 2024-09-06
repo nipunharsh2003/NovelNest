@@ -17,7 +17,7 @@ const ResetPassword = () => {
     }
 
     try {
-      await axios.post(`http://localhost:8100/api/reset-password/${token}`, { password });
+      await axios.post(`https://novelnest-backend.onrender.com/api/reset-password/${token}`, { password });
       setMessage("Password reset successful");
       navigate("/login");
     } catch (error) {

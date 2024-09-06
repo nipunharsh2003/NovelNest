@@ -39,7 +39,7 @@ const Navbar = () => {
     const handleSearch = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.get(`http://localhost:8100/api/search-books`, {
+            const response = await axios.get(`https://novelnest-backend.onrender.com/api/search-books`, {
                 params: { query: searchTerm }
             });
             navigate('/search-results', { state: { results: response.data.data } });

@@ -13,7 +13,7 @@ function ProcessPayment() {
             if (paymentSuccessful) {
                 navigate('/');
             } else {
-                const response = await axios.get('http://localhost:8100/payment-success');
+                const response = await axios.get('https://novelnest-backend.onrender.com/payment-success');
                 console.log(response.data.message);
                 navigate('/');  // Navigate to the payment success page
             }

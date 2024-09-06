@@ -41,7 +41,7 @@ const UpdateBook = () => {
           alert("Please fill all the fields");
          
         }  else{
-          const response = await axios.put('http://localhost:8100/api/update-book', Data, { headers} );
+          const response = await axios.put('https://novelnest-backend.onrender.com/api/update-book', Data, { headers} );
         };
         setData({
           url: "",
@@ -66,7 +66,7 @@ const UpdateBook = () => {
     useEffect(() => {
         const fetch = async () => {
             try {
-                const response = await axios.get(`http://localhost:8100/api/get-book-by-id/${id}`);
+                const response = await axios.get(`https://novelnest-backend.onrender.com//api/get-book-by-id/${id}`);
                 console.log(response);
                 setData(response.data.data);
             } catch (error) {

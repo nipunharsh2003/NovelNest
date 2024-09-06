@@ -10,7 +10,7 @@ const ForgotPassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:8100/api/forgot-password', { email });
+      await axios.post('https://novelnest-backend.onrender.com/api/forgot-password', { email });
       setMessage("A reset link has been sent to your email.");
     } catch (error) {
       setMessage("Error sending reset link. Try again.");
