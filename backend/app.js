@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000;
 
 // Use the CORS middleware
 app.use(cors({
-    origin: 'http://localhost:5173', 
+    origin: 'https://novelnest-frontend.onrender.com', 
     methods: ['get', 'post', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization', 'id','bookid'],
 
