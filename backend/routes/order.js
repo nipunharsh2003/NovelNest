@@ -1,32 +1,42 @@
-
-
 const express = require("express");
 const router = express.Router();
 const { authenticateToken } = require("./userAuth");
 const Order = require("../models/order");
 const User = require("../models/users");
-const Stripe = require('stripe'); // Import Stripe first
+const Stripe = require('stripe');
 const stripe = Stripe(process.env.STRIPE_SECRET); // Initialize Stripe with the secret key
 
+// Route to place an order
 router.post("/place-order", authenticateToken, async (req, res) => {
     try {
         const { id } = req.headers;
         const { order } = req.body;
 
+        // Check if order array exists and is valid
+        if (!order || !Array.isArray(order)) {
+            return res.status(400).json({ message: "Invalid order data" });
+        }
+
         for (const orderData of order) {
+            // Validate if orderData._id exists
+            if (!orderData || !orderData._id) {
+                return res.status(400).json({ message: "Invalid order item data" });
+            }
+
             const newOrder = new Order({ user: id, book: orderData._id });
             const orderDataFromDb = await newOrder.save();
 
-            // Saving order in user model
+            // Save order in the user model
             await User.findByIdAndUpdate(id, {
                 $push: { orders: orderDataFromDb._id },
             });
 
-            // Clearing cart
+            // Clear item from the cart
             await User.findByIdAndUpdate(id, {
                 $pull: { cart: orderData._id },
             });
         }
+
         return res.json({
             status: "success",
             message: "Order placed successfully",
@@ -36,13 +46,14 @@ router.post("/place-order", authenticateToken, async (req, res) => {
     }
 });
 
+// Route to create a payment intent with Stripe
 router.post("/create-payment-intent", authenticateToken, async (req, res) => {
     try {
         const { id, orderId } = req.body;
 
         const order = await Order.findById(orderId).populate("book");
-        if (!order) {
-            return res.status(404).json({ message: "Order not found" });
+        if (!order || !order.book) {
+            return res.status(404).json({ message: "Order or book not found" });
         }
 
         // Create a payment intent with Stripe
@@ -64,6 +75,7 @@ router.post("/create-payment-intent", authenticateToken, async (req, res) => {
     }
 });
 
+// Route to get order history for a user
 router.post("/get-order-history", authenticateToken, async (req, res) => {
     try {
         const { id } = req.headers;
@@ -73,6 +85,10 @@ router.post("/get-order-history", authenticateToken, async (req, res) => {
             path: "orders",
             populate: { path: "book" },
         });
+
+        if (!userData) {
+            return res.status(404).json({ message: "User not found" });
+        }
 
         // Reverse the order history to show the most recent first
         const ordersData = userData.orders.reverse();
@@ -87,7 +103,7 @@ router.post("/get-order-history", authenticateToken, async (req, res) => {
     }
 });
 
-// Get all orders - admin
+// Route to get all orders - admin
 router.get("/get-all-orders", authenticateToken, async (req, res) => {
     try {
         const userData = await Order.find()
@@ -109,11 +125,16 @@ router.get("/get-all-orders", authenticateToken, async (req, res) => {
     }
 });
 
-// Update order status - admin
+// Route to update order status - admin
 router.put("/update-status/:id", authenticateToken, async (req, res) => {
     try {
         const { id } = req.params;
-        await Order.findByIdAndUpdate(id, { status: req.body.status });
+        const updatedOrder = await Order.findByIdAndUpdate(id, { status: req.body.status });
+
+        if (!updatedOrder) {
+            return res.status(404).json({ message: "Order not found" });
+        }
+
         return res.json({
             status: "Success",
             message: "Status Updated Successfully",
@@ -124,7 +145,7 @@ router.put("/update-status/:id", authenticateToken, async (req, res) => {
     }
 });
 
-
+// Route to create a checkout session with Stripe
 router.post('/create-checkout-session', async (req, res) => {
     const { orderIds } = req.body; // Expecting an array of orderIds
 
@@ -163,12 +184,10 @@ router.post('/create-checkout-session', async (req, res) => {
         res.status(500).json({ message: 'An error occurred', details: error.message });
     }
 });
+
+// Payment success route
 router.get('/payment-success', (req, res) => {
     res.status(200).json({ message: 'Payment was successful!' });
 });
-
-
-module.exports = router;
-
 
 module.exports = router;
