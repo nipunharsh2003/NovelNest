@@ -19,7 +19,9 @@ app.use(cors({
 }));
 
 // Other middleware and routes
-app.use(cors());
+app.use(cors({
+    origin: 'https://novelnest-frontend.onrender.com',
+}));
 app.use(express.json());
 
 const User = require("./routes/user");
