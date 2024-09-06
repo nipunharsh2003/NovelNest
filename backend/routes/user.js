@@ -228,22 +228,7 @@ router.post('/forgot-password', async (req, res) => {
   }
 });
 
-//update address
 
-// router.put("/update-address", authenticateToken, async(req , res)=>{
-//     try{
-//         const { id} = req.headers;
-//         const {address} = req.body;
-//        await User.findByIdAndUpdate(id , {address: address}); //sending the id and updated address
-//        return res.status(200).json({MediaKeyMessageEvent
-
-//        })
-//  }
-//  catch(error){
-//      return res.status(500).json({ message: "Internal server error" });
-
-//  }
-// })
 
 module.exports = router;
 

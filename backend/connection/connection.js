@@ -1,34 +1,4 @@
-// const mongoose = require("mongoose");
 
-// const conn = async () => {
-//     try{
-//         await mongoose.connect(`${process.env.URI}`);
-//         console.log(process.env.URI);
-//         console.log("connected to dtabase");
-//     }
-//     catch(error) {
-//         console.log(error);
-//     }
-// };
-// conn();
-
-//v8PXIafE9fcJjeBi database -user password
-// const mongoose = require('mongoose');
-// require('dotenv').config();
-
-// const conn = async () => {
-//   try {
-//     await mongoose.connect(process.env.MONGODB_URI, {
-//       useNewUrlParser: true,
-//       useUnifiedTopology: true,
-//     });
-//     console.log('MongoDB connected');
-//   } catch (err) {
-//     console.error('Error connecting to MongoDB:', err);
-//   }
-// };
-
-// conn();
 const mongoose = require("mongoose");
 
 const conn = async () => {

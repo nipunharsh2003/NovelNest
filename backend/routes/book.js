@@ -1,6 +1,4 @@
-//all the rule for users
 
-// "password":"admin12333"
 const router = require("express").Router();
 const User = require("../models/users");
 
