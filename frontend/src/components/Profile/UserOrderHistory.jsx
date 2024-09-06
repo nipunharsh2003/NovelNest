@@ -172,7 +172,7 @@ const UserOrderHistory = () => {
   useEffect(() => {
     const fetchOrderHistory = async () => {
       try {
-        const response = await axios.post("http://localhost:8100/api/get-order-history", {}, { headers });
+        const response = await axios.post("https://novelnest-backend.onrender.com/api/get-order-history", {}, { headers });
         setOrderHistory(response.data.data);
       } catch (error) {
         console.error('Error fetching order history:', error);
@@ -208,7 +208,7 @@ const UserOrderHistory = () => {
         return;
       }
 
-      const response = await axios.post("http://localhost:8100/api/create-checkout-session", { orderIds: selectedItems }, { headers });
+      const response = await axios.post("https://novelnest-backend.onrender.com/api/create-checkout-session", { orderIds: selectedItems }, { headers });
 
       const { sessionId } = response.data;
 
@@ -308,4 +308,3 @@ const UserOrderHistory = () => {
 };
 
 export default UserOrderHistory;
-
