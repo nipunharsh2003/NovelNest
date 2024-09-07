@@ -83,7 +83,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className='h-screen bg-gray-900 flex items-center justify-center'>
+    <div className='min-h-screen bg-gray-900 flex items-center justify-center'>
       <div className='bg-zinc-800 rounded-lg shadow-lg px-10 py-8 w-full max-w-md'>
         <p className='text-2xl font-semibold text-white mb-6'>Sign Up</p>
         <form onSubmit={submit}>
