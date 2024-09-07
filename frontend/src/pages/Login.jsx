@@ -142,12 +142,7 @@ const Login = () => {
           </Link>
         </p>
         
-        <p className='forgot-password'>
-          Forgot your password? &nbsp;
-          <Link to="/forgot-password" className='link'>
-            <u>Reset Password</u>
-          </Link>
-        </p>
+       
       </div>
     </div>
   );
