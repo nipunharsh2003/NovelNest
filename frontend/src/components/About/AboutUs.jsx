@@ -26,7 +26,7 @@ const AboutUs = () => {
           <p className="text-lg md:text-xl mb-6 leading-relaxed drop-shadow-lg">
             If you have any questions or need support, feel free to reach out to us via email or follow us on social media.
           </p>
-          <a href="mailto:support@novelnest.com" className="text-blue-300 hover:text-blue-500 underline font-medium">
+          <a href="mailto:nipunharsh139@gmail.com" className="text-blue-300 hover:text-blue-500 underline font-medium">
             support@novelnest.com
           </a>
           <div className="mt-6">
