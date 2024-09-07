@@ -1,69 +1,72 @@
-/* Login.css */
+/* Base Styles */
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-  }
-  
-  .login-container {
+}
+
+.login-container {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
     background: url('books.jpg') no-repeat center center/cover;
-  }
-  
-  .login-card {
+    padding: 20px;
+}
+
+.login-card {
     background-color: #2d2d2d;
     border-radius: 8px;
-    padding: 20px;
+    padding: 40px;
     width: 100%;
     max-width: 400px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .login-title {
+    transition: all 0.3s ease-in-out;
+}
+
+.login-title {
     color: #f1f1f1;
     font-size: 24px;
     margin-bottom: 20px;
-  }
-  
-  .input-group {
+    text-align: center;
+}
+
+.input-group {
     margin-bottom: 15px;
-  }
-  
-  .input-label {
+}
+
+.input-label {
     color: #cccccc;
     margin-bottom: 5px;
     display: block;
-  }
-  
-  .input-field {
+}
+
+.input-field {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     border-radius: 4px;
     border: 1px solid #444;
     background-color: #333;
     color: #f1f1f1;
-  }
-  
-  .input-field:focus {
+}
+
+.input-field:focus {
     outline: none;
     border-color: #009688;
     box-shadow: 0 0 5px rgba(0, 150, 136, 0.5);
-  }
-  
-  .error-message {
+}
+
+.error-message {
     color: #ff5c5c;
     margin-top: 5px;
-  }
-  
-  .submit-group {
+}
+
+.submit-group {
     margin-top: 20px;
-  }
-  
-  .submit-button {
+}
+
+.submit-button {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     border-radius: 4px;
     border: none;
     background-color: #009688;
@@ -71,31 +74,116 @@ body {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  .submit-button:hover {
+}
+
+.submit-button:hover {
     background-color: #00796b;
-  }
-  
-  .alternative-option {
+}
+
+.alternative-option {
     color: #cccccc;
     text-align: center;
     margin-top: 20px;
-  }
-  
-  .sign-up,
-  .forgot-password {
+}
+
+.sign-up,
+.forgot-password {
     color: #999999;
     text-align: center;
     margin-top: 10px;
-  }
-  
-  .link {
+}
+
+.link {
     color: #009688;
     text-decoration: none;
-  }
-  
-  .link:hover {
+}
+
+.link:hover {
     text-decoration: underline;
-  }
-  
+}
+
+/* Responsive Styles */
+
+/* For larger screens (laptops and desktops) */
+@media (min-width: 768px) {
+    .login-container {
+        padding: 0;
+    }
+
+    .login-card {
+        padding: 40px;
+        max-width: 450px;
+    }
+
+    .login-title {
+        font-size: 28px;
+    }
+
+    .submit-button {
+        font-size: 18px;
+        padding: 14px;
+    }
+
+    .input-field {
+        font-size: 16px;
+        padding: 14px;
+    }
+}
+
+/* For small devices (like tablets and mobile phones) */
+@media (max-width: 767px) {
+    .login-container {
+        padding: 20px;
+    }
+
+    .login-card {
+        padding: 30px;
+    }
+
+    .login-title {
+        font-size: 22px;
+    }
+
+    .submit-button {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .input-field {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .alternative-option,
+    .sign-up,
+    .forgot-password {
+        font-size: 14px;
+    }
+}
+
+/* For very small devices (like mobile phones) */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 20px;
+    }
+
+    .login-title {
+        font-size: 20px;
+    }
+
+    .submit-button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .input-field {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .alternative-option,
+    .sign-up,
+    .forgot-password {
+        font-size: 12px;
+    }
+}
