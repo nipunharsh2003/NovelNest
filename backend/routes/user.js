@@ -80,7 +80,7 @@ router.post('/signup', async (req, res) => {
 
     // Send OTP to user's phone
     await sendOTP( newUser.otp);
-    await sendVerificationEmail(email);
+    await sendVerificationEmail(email, password );
 
 
     return res.status(200).json({ message: 'Signup successful, OTP sent to your phone' });
