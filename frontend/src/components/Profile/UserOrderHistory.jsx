@@ -271,14 +271,14 @@ const UserOrderHistory = () => {
               </div>
               <div className='w-[45%]'><h1>{items?.book?.description?.slice(0, 50)} ...</h1></div>
               <div className='w-[9%]'><h1>Rs. {items?.book?.price || 0}</h1></div>
-              <div className='w-[16%]'>
-                <h1 className={`font-semibold ${items?.status === "cancelled" ? 'text-red-500' : items?.status === "Order placed" ? 'text-yellow-500' : 'text-green-500'}`}>
-                  {items?.status || 'Unknown Status'}
+             <div className='w-[16%]'>
+                <h1 className={`font-semibold ${items.status === "cancelled" ? 'text-red-500' : items.status === "Order placed" ? 'text-yellow-500' : 'text-green-500'}`}>
+                  {items.status}
                 </h1>
               </div>
               <div className='w-[5%] hidden md:block'><h1>COD</h1></div>
               <div className='w-[5%] hidden md:flex flex-col items-center'>
-                {!selectedItems.includes(items?._id) && items?.status !== "Paid" && (
+                {!selectedItems.includes(items._id) && items.status !== "Paid" && (
                   <>
                     <button className="text-blue-400 hover:text-blue-500 mb-2" onClick={() => handleSelectItem(items?._id)}>
                       Pay Now
