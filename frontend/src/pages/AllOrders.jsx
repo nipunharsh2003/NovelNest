@@ -35,7 +35,7 @@ const AllOrders = () => {
   const submitChanges = async (i) => {
     try {
       const id = allOrders[i]._id;
-      const response = await axios.put(`https://novelnest-backend.onrender.com//api/update-status/${id}`, values, { headers });
+      const response = await axios.put(`https://novelnest-backend.onrender.com/api/update-status/${id}`, values, { headers });
       console.log(response);
       setOption(-1); // Reset option after submitting changes
       // Update the order status in the state
