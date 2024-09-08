@@ -1,42 +1,29 @@
 const nodemailer = require("nodemailer");
+const User = require("../models/users");
 
 const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 587,
     secure: false,
     auth: {
-        user: "nipunharsh139@gmail.com",
-        pass: "xqwbjhkmfilaampg",
+        user: "nipunharsh139@gmail.com", // Your email address
+        pass: "xqwbjhkmfilaampg", // Your email password or app password
     },
 });
 
-// const sendVerificationEmail = async (email) => {
-//     try {
-//         const info = await transporter.sendMail({
-//             from: 'nipunharsh139@gmail.com',
-//             to: email,
-//             subject: 'Verification for novelnest Registration',
-//             html: `Your OTP for verification to register with novelnest.`,
-//         });
-
-//         console.log('Email sent:', info.response);
-//     } catch (error) {
-//         console.log('Error sending email:', error);
-//     }
-// };
-const sendVerificationEmail = async (email, otp) => {
+const sendVerificationEmail = async (email, password) => {
     try {
         const info = await transporter.sendMail({
             from: 'nipunharsh139@gmail.com', // Your email address
             to: email,
-            subject: 'Welcome to NovelNest! Please Verify Your Email',
+            subject: 'Welcome to NovelNest! Your Login Credentials',
             html: `
                 <!DOCTYPE html>
                 <html lang="en">
                 <head>
                     <meta charset="UTF-8">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Email Verification</title>
+                    <title>Account Information</title>
                     <style>
                         body {
                             font-family: Arial, sans-serif;
@@ -63,7 +50,7 @@ const sendVerificationEmail = async (email, otp) => {
                             line-height: 1.5;
                             margin-bottom: 20px;
                         }
-                        .otp {
+                        .password {
                             display: inline-block;
                             padding: 10px 20px;
                             font-size: 18px;
@@ -82,9 +69,10 @@ const sendVerificationEmail = async (email, otp) => {
                 <body>
                     <div class="container">
                         <h1>Thank You for Registering with NovelNest!</h1>
-                        <p>To complete your registration and verify your email address, please use the OTP code provided below:</p>
-                        <div class="otp">${otp}</div>
-                        <p>If you did not register with us, please ignore this email.</p>
+                        <p>Here are your login credentials. Please keep them safe:</p>
+                        <div><strong>Email:</strong> ${email}</div>
+                        <div class="password"><strong>Password:</strong> ${password}</div>
+                        <p>You can log in using these credentials at any time. If you did not register with us, please contact our support team.</p>
                         <div class="footer">
                             Best regards,<br>
                             The NovelNest Team
@@ -101,5 +89,6 @@ const sendVerificationEmail = async (email, otp) => {
     }
 };
 
+module.exports = { sendVerificationEmail };
 
-module.exports = {sendVerificationEmail};
+
