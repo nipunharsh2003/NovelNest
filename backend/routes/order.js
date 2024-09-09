@@ -374,7 +374,7 @@ router.post('/create-checkout-session', async (req, res) => {
         // Create line items for each order
         const lineItems = orders.map(order => ({
             price_data: {
-                currency: 'usd',
+                currency: 'inr',
                 product_data: {
                     name: order.book.title,
                 },
